@@ -39,11 +39,8 @@ static CGPoint _calculatePoint(CGFloat hue, CGFloat saturation);
 
 - (id)initWithColor:(UIColor *)_selectionColor {
     if ((self = [super init])) {
-        float rgba[4];
-        RSGetComponentsForColor(rgba, _selectionColor);
-        UIColor * selectionColor = [UIColor colorWithRed:rgba[0] green:rgba[1] blue:rgba[2] alpha:rgba[3]];
         CGFloat hue, saturation;
-        [selectionColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
+        [_selectionColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
         scaledRelativePoint = _calculatePoint(hue, saturation);
     }
     return self;
